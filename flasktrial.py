@@ -6,7 +6,7 @@ import base64
 import os,jsonify
 from flask_cors import CORS, cross_origin
 import ChatGPT
-from flask_app import app
+
 
 app = Flask(__name__)
 
