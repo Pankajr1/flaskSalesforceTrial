@@ -13,7 +13,7 @@ app = Flask(__name__)
 def process():
     data = request.get_json()
     text = data.get('text')
-    print('text='+text)
+    print('text==='+text)
     # response = 'Processed: ' + text
 
     return ChatGPT.generate_response(text)
