@@ -19,7 +19,7 @@ def process():
 
     return ChatGPT.generate_response(text)
 
-@app.route('cchpi', methods=['POST'])
+@app.route('/cchpi', methods=['POST'])
 def cchpi():
     data=request.get_json()
     test=data.get('text')
