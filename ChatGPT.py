@@ -45,7 +45,7 @@ def generate_cchpiResp(txt):
             {"role": "assistant","content": "{\n  \"Visit_type__c\": \"Face to Face\",\n  \"PlaceOfVisit__c\": \"Home\",\n  \"HPI__c\": \"He has history of cancer, COPD, and was in rehab for alcohol addiction.\",\n  \"cc__c\": \"Admission due to recent fall, was in ER.\"\n}"},
             {"role": "user","content": "Called to the patien at his home he has history of cancer, COPD and was rehab for alcohol addiction. Then he got admitted to program as he ahd recent fall was in ER"},
             {"role": "assistant","content": "{\n  \"Visit_type__c\": \"Telephonic\",\n  \"PlaceOfVisit__c\": \"Home\",\n  \"HPI__c\": \"He has history of cancer, COPD, and was in rehab for alcohol addiction.\",\n  \"cc__c\": \"Admission due to recent fall, was in ER.\"\n}"},
-            {"role": "user", "content": txt},],
+            {"role": "user", "content": txt}],
           temperature=1,
           max_tokens=256,
           top_p=1,
