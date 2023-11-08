@@ -41,9 +41,9 @@ def generate_cchpiResp(txt):
           messages=[{"role": "user","content": "you are playing role of a physician. Analyze the below note and produce a JSON output in the format filedname and field value. The format is given at the end with  few examples to  look and learn.\nExample- Performing a follow up visit for patient at the SNF on video conference. He has  history of diabetes, hypertension. He is admitted to program as he had recent fall, was in ER. \nIn above example Visit_type__c should be one of Comprehensive, Follow-up, Post Hospital Annual, RN Visit, SNF Discharge Summary, SNF Follow up, SNF Initial or Superbill. How_was_visit_completed__c should be one of Face to Face, Telephonic or Telehealth Video"},
             {"role": "assistant","content": "{\"Visit_type__c\":\"Follow up\",\"How_was_visit_completed__c\":\"Telehealth Video\", \"Place_of_Service__c\":\"SNF\",\"HPI__c\":\"He has history of diabetes and hypertension\",\"cc__c\":\"Admission due to recent fall, was in ER\"}"},
             {"role": "user","content": "met with the patien at his home to perform annual visit after hospitalization, he has history of cancer, COPD and was rehab for alcohol addiction. Then he got admitted to program as he ahd recent fall was in ER"},
-            {"role": "assistant","content": "{\n \"Visit_type__c\":\"Post Hospital Annual\", \"How_was_visit_completed__c\": \"Face to Face\",\n  \"Place_of_Service__c\": \"Home\",\n  \"HPI__c\": \"He has history of cancer, COPD, and was in rehab for alcohol addiction.\",\n  \"cc__c\": \"Admission due to recent fall, was in ER.\"\n}"},
+            {"role": "assistant","content": "{\"Visit_type__c\":\"Post Hospital Annual\", \"How_was_visit_completed__c\": \"Face to Face\",\"Place_of_Service__c\": \"Home\",\"HPI__c\": \"He has history of cancer, COPD, and was in rehab for alcohol addiction.\",\"cc__c\": \"Admission due to recent fall, was in ER.\"}"},
             {"role": "user","content": "Called to the patien at his home to perform RN Visit, he has history of cancer, COPD and was rehab for alcohol addiction. Then he got admitted to program as he ahd recent fall was in ER"},
-            {"role": "assistant","content": "{\n \"Visit_type__c\":\"RN Visit\", \"How_was_visit_completed__c\": \"Telephonic\",\n  \"Place_of_Service__c\": \"Home\",\n  \"HPI__c\": \"He has history of cancer, COPD, and was in rehab for alcohol addiction.\",\n  \"cc__c\": \"Admission due to recent fall, was in ER.\"\n}"},
+            {"role": "assistant","content": "{\"Visit_type__c\":\"RN Visit\", \"How_was_visit_completed__c\": \"Telephonic\",\"Place_of_Service__c\": \"Home\",\"HPI__c\": \"He has history of cancer, COPD, and was in rehab for alcohol addiction.\",\"cc__c\": \"Admission due to recent fall, was in ER.\"}"},
             {"role": "user", "content": txt}],
           temperature=1,
           max_tokens=256,
@@ -51,7 +51,7 @@ def generate_cchpiResp(txt):
           frequency_penalty=0,
           presence_penalty=0
         )
-        return response
+        return response.choices[0].message.content
 
 
 
